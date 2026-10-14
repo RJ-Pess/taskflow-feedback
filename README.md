@@ -82,7 +82,7 @@ docker cp taskflow:/app/data ./taskflow-backup
 - Ideia nova ou melhoria: [abrir sugestão](../../issues/new?template=sugestao.yml)
 - Algo não funciona: [reportar bug](../../issues/new?template=bug.yml)
 
-Aceito todas as sugestões e bugs, sem exceção. Leio tudo, mas é um projeto pessoal e respondo quando puder, **normalmente em alguns dias e sem prazos garantidos**. Não há suporte garantido, mas nada fica sem leitura.
+É um projeto pessoal: respondo quando puder, sem prazos.
 
 ## Licença
 
