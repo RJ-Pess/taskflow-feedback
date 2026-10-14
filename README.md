@@ -1,12 +1,18 @@
 # TaskFlow
 
-> **English:** a personal, self-hosted task manager. Sections › Projects › Subprojects, due dates, recurrence, full-text search, 30-day trash, ntfy reminders and a quick-capture API. Runs as a single Docker container (SQLite, `linux/amd64` and `linux/arm64`, so Raspberry Pi and Apple Silicon work). **The interface is in Portuguese (pt-PT).** The source code is not public; the app is free for personal use and this repository is for installation and feedback. Install: see [Instalar](#instalar) (one `docker run`).
+> **English:** a personal, self-hosted task manager. Sections › Projects › Subprojects, due dates, recurrence, full-text search, 30-day trash, ntfy reminders and a quick-capture API. Runs as a single Docker container (SQLite, `linux/amd64` and `linux/arm64`, so Raspberry Pi and Apple Silicon work). **The interface is in Portuguese (pt-PT).** **The source code is closed. I'm an inexperienced developer, the whole app was built with AI, and I'm looking for feedback.** It is free for personal use; this repository is for installation and feedback. Install: see [Instalar](#instalar) (one `docker run`).
 
 Gestor de tarefas pessoal, em português: **Secções › Projetos › Subprojetos**, prazos, recorrência, pesquisa, lixo com 30 dias, lembretes e captura rápida por API.
 
 ![Tour pela TaskFlow: Hoje, lista, board, calendário e Gantt, em tema claro e escuro](docs/img/tour.gif)
 
-É um projeto pessoal, feito com ajuda de IA. O código não é público, mas podes usar a app grátis e dar sugestões aqui.
+## Antes de instalares
+
+- **O código é fechado.** Sou uma pessoa inexperiente e esta aplicação foi feita **inteiramente com IA**. Por agora prefiro não a publicar: o que procuro é feedback de quem a usa. A app é grátis para uso pessoal (ver [Licença](#licença)).
+- **É uma app pessoal, para uma só pessoa.** Não tem equipas, partilha nem permissões, e corre em **HTTP** (sem HTTPS). Usa-a em casa, na rede local ou atrás do teu próprio HTTPS.
+- **Instala-se em dois minutos**, sem configuração: um comando ou um `docker-compose.yml` (abaixo).
+- **Sem demo online.** As [capturas](#capturas) mostram a app com dados de exemplo.
+- **Dá feedback!** Qualquer sugestão ou bug ajuda, ver [Sugestões e problemas](#sugestões-e-problemas).
 
 ## Capturas
 
