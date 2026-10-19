@@ -1,0 +1,18 @@
+name: Suggest an improvement
+description: Got an idea for TaskFlow?
+labels: [enhancement]
+body:
+  - type: textarea
+    id: ideia
+    attributes:
+      label: What's the idea?
+    validations:
+      required: true
+  - type: textarea
+    id: problema
+    attributes:
+      label: What problem does it solve, or what does it improve?
+  - type: input
+    id: versao
+    attributes:
+      label: Image version (e.g. 1.2.0)

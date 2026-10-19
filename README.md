@@ -1,73 +1,41 @@
 # TaskFlow
 
-> **English:** a personal, self-hosted task manager, originally built in Portuguese for my own needs and **fully translated to English so anyone can use it**. Sections › Projects › Subprojects, due dates, recurrence, full-text search, 30-day trash, ntfy reminders and a quick-capture API. Single Docker container (SQLite, `linux/amd64` and `linux/arm64`). **Closed source, built entirely with AI by an inexperienced developer looking for feedback;** free for personal use. See the [English section](#english) below.
+A personal, self-hosted task manager: **Sections › Projects › Subprojects**, due dates, recurrence, full-text search, a 30-day trash, reminders and a quick-capture API. It runs as a single Docker container.
 
-## English
+I'm Portuguese and I originally built TaskFlow for my own needs, in Portuguese. I then translated the whole interface to English so that **anyone can use it**. The app is available in English and Portuguese (pt-PT); pick the language in *Settings → Preferences → Language*.
 
-**TaskFlow** is a personal, self-hosted task manager: Sections › Projects › Subprojects, due dates, recurrence, full-text search, a 30-day trash, ntfy reminders and a quick-capture API.
+![TaskFlow tour: Today, list, board, calendar and Gantt, in light and dark themes](docs/img/tour.gif)
 
-I originally built it **in Portuguese, for my own needs**. I then **translated the whole interface to English so anyone can use it**. Switch language in *Settings → Preferences → Language*. Quick capture, reminders and the morning digest understand both languages.
+## Before you install
 
-- **Closed source.** I'm an inexperienced developer and the whole app was built with AI. I'm not publishing the code for now; I'm looking for feedback. It is free for personal use (see [License](#licença)).
-- **Single-user.** No teams, sharing or permissions. It runs over **plain HTTP**: use it on your home network or behind your own HTTPS. Don't expose it directly to the internet.
-- **No online demo.** See the [screenshots](#capturas) (sample data).
+- **The source code is closed.** I'm an inexperienced developer and the whole app was built with AI. For now I prefer not to publish the code: what I'm after is feedback from people who use it. The app is free for personal use (see [License](#license)).
+- **It's a personal, single-user app.** No teams, sharing or permissions. It runs over **plain HTTP**, so use it at home, on your local network, or behind your own HTTPS.
+- **It installs in two minutes**, with no configuration: one command or a `docker-compose.yml` (below).
+- **There is no online demo.** The [screenshots](#screenshots) show the app with sample data.
+- **Please give feedback!** Any suggestion or bug report helps, see [Feedback](#feedback).
 
-### Install
+## Screenshots
 
-Requires [Docker](https://docs.docker.com/get-docker/). The image is multi-arch (`amd64` and `arm64`: PCs, Raspberry Pi, Apple Silicon).
-
-```bash
-docker run -d --name taskflow -p 3000:3000 \
-  -v taskflow-data:/app/data --restart unless-stopped \
-  ghcr.io/rj-pess/taskflow:latest
-```
-
-Open <http://localhost:3000> and create your account (the first account is created on first visit). A `docker-compose.yml` is shown in [Com Docker Compose](#com-docker-compose).
-
-**Update:** `docker pull ghcr.io/rj-pess/taskflow:latest`, `docker rm -f taskflow`, then run the install command again. Your data lives in the `taskflow-data` volume and survives updates.
-
-**Backup:** the app makes a daily backup (last 14) in `data/backups/`. Copy everything with `docker cp taskflow:/app/data ./taskflow-backup`.
-
-### Feedback
-
-Ideas: [open a suggestion](../../issues/new?template=sugestao.yml). Bugs: [report a bug](../../issues/new?template=bug.yml). Issues in English are welcome. It's a personal project, so I reply when I can.
-
-Gestor de tarefas pessoal, em português **e inglês** (escolhe em Definições → Preferências → Idioma): **Secções › Projetos › Subprojetos**, prazos, recorrência, pesquisa, lixo com 30 dias, lembretes e captura rápida por API.
-
-![Tour pela TaskFlow: Hoje, lista, board, calendário e Gantt, em tema claro e escuro](docs/img/tour.gif)
-
-## Antes de instalares
-
-- **O código é fechado.** Sou uma pessoa inexperiente e esta aplicação foi feita **inteiramente com IA**. Por agora prefiro não a publicar: o que procuro é feedback de quem a usa. A app é grátis para uso pessoal (ver [Licença](#licença)).
-- **É uma app pessoal, para uma só pessoa.** Não tem equipas, partilha nem permissões, e corre em **HTTP** (sem HTTPS). Usa-a em casa, na rede local ou atrás do teu próprio HTTPS.
-- **Instala-se em dois minutos**, sem configuração: um comando ou um `docker-compose.yml` (abaixo).
-- **Sem demo online.** As [capturas](#capturas) mostram a app com dados de exemplo.
-- **Dá feedback!** Qualquer sugestão ou bug ajuda, ver [Sugestões e problemas](#sugestões-e-problemas).
-
-## Capturas
-
-| Hoje | Board (escuro) | Gantt |
+| Today | Board (dark) | Gantt |
 | --- | --- | --- |
-| ![Hoje, tema claro](docs/img/desktop-hoje-claro.png) | ![Board de projeto, tema escuro](docs/img/desktop-board-escuro.png) | ![Gantt de projeto](docs/img/desktop-gantt-claro.png) |
+| ![Today, light theme](docs/img/desktop-today-light.png) | ![Project board, dark theme](docs/img/desktop-board-dark.png) | ![Project Gantt chart](docs/img/desktop-gantt-light.png) |
 
-No telemóvel (barra inferior, folhas e gestos com equivalente por toque):
+On mobile (bottom bar, sheets, and gestures that all have a tap equivalent):
 
 <p>
-  <img src="docs/img/iphone-hoje-claro.png" alt="Hoje no iPhone" width="260">
-  <img src="docs/img/iphone-board-escuro.png" alt="Board no iPhone, tema escuro" width="260">
+  <img src="docs/img/iphone-today-light.png" alt="Today on iPhone" width="260">
+  <img src="docs/img/iphone-board-dark.png" alt="Board on iPhone, dark theme" width="260">
 </p>
 
-## Idioma / Language
+## Language
 
-A interface está em **português (Portugal)** e **inglês**. A escolha faz-se em *Definições → Preferências → Idioma* e vale em todos os dispositivos. Os lembretes e o resumo da manhã seguem o idioma escolhido, e a captura rápida (por texto ou API) entende datas e recorrência nos dois idiomas («amanhã», «tomorrow», «todas as sextas», «every friday»…).
+The interface comes in **English** and **Portuguese (Portugal)**. Choose it in *Settings → Preferences → Language*; the choice applies on every device. Reminders and the morning digest follow it, and quick capture (by text or API) understands dates and recurrence in both languages ("tomorrow", "every friday"…).
 
-The interface comes in **English** and **Portuguese (Portugal)**. Pick it in *Settings → Preferences → Language*; it applies on every device. Reminders and the morning digest follow it, and quick capture understands dates and recurrence in both languages.
+![Settings → Preferences with the language selector](docs/img/settings-language-en.png)
 
-![Settings → Preferences with the language selector, in English](docs/img/settings-language-en.png)
+## Install
 
-## Instalar
-
-Precisas de [Docker](https://docs.docker.com/get-docker/).
+You need [Docker](https://docs.docker.com/get-docker/).
 
 ```bash
 docker run -d --name taskflow -p 3000:3000 \
@@ -75,11 +43,11 @@ docker run -d --name taskflow -p 3000:3000 \
   ghcr.io/rj-pess/taskflow:latest
 ```
 
-Abre <http://localhost:3000> e cria a tua conta (a primeira conta é criada no primeiro acesso).
+Open <http://localhost:3000> and create your account (the first account is created on first visit).
 
-> A imagem é multi-arquitetura (**amd64** e **arm64**): funciona em PCs, Raspberry Pi e Macs com Apple Silicon, sem opções extra.
+> The image is multi-architecture (**amd64** and **arm64**): it runs on PCs, Raspberry Pi and Apple Silicon Macs with no extra options.
 
-### Com Docker Compose
+### With Docker Compose
 
 ```yaml
 services:
@@ -92,36 +60,36 @@ volumes:
   taskflow-data:
 ```
 
-## Atualizar
+## Update
 
 ```bash
 docker pull ghcr.io/rj-pess/taskflow:latest
 docker rm -f taskflow
-# volta a correr o comando de instalação
+# run the install command again
 ```
 
-Os dados ficam no volume `taskflow-data` e sobrevivem à atualização.
+Your data lives in the `taskflow-data` volume and survives updates.
 
 ## Backup
 
-A app faz um backup diário (últimos 14) em `data/backups/`. Para copiares tudo para a tua máquina:
+The app makes a daily backup (the last 14 are kept) in `data/backups/`. To copy everything to your machine:
 
 ```bash
 docker cp taskflow:/app/data ./taskflow-backup
 ```
 
-## Segurança
+## Security
 
-- A app corre em **HTTP**. Usa-a em rede local ou atrás do teu próprio HTTPS. **Não a expões diretamente à internet.**
-- Cada instalação é tua: os teus dados ficam só na tua máquina.
+- The app runs over **HTTP**. Use it on a local network or behind your own HTTPS. **Do not expose it directly to the internet.**
+- Every installation is yours: your data stays on your own machine.
 
-## Sugestões e problemas
+## Feedback
 
-- Ideia nova ou melhoria: [abrir sugestão](../../issues/new?template=sugestao.yml)
-- Algo não funciona: [reportar bug](../../issues/new?template=bug.yml)
+- A new idea or improvement: [open a suggestion](../../issues/new?template=suggestion.yml)
+- Something doesn't work: [report a bug](../../issues/new?template=bug.yml)
 
-É um projeto pessoal: respondo quando puder, sem prazos.
+This is a personal project: I reply when I can, with no deadlines.
 
-## Licença
+## License
 
-Uso pessoal e gratuito. Ver [LICENSE](LICENSE).
+Free for personal use. See [LICENSE](LICENSE).

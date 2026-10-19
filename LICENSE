@@ -1,13 +1,13 @@
-TaskFlow — licença de utilização
+TaskFlow — license of use
 
 Copyright (c) 2026 RJ-Pess
 
-É concedida permissão para usar a aplicação TaskFlow (a imagem Docker
-publicada em ghcr.io/rj-pess/taskflow), gratuitamente, para fins pessoais
-e não comerciais.
+Permission is granted to use the TaskFlow application (the Docker image
+published at ghcr.io/rj-pess/taskflow), free of charge, for personal,
+non-commercial purposes.
 
-Não é permitido: vender a aplicação, oferecê-la como serviço a terceiros,
-redistribuí-la, ou tentar obter ou publicar o seu código-fonte.
+Not allowed: selling the application, offering it as a service to third
+parties, redistributing it, or attempting to obtain or publish its source code.
 
-A APLICAÇÃO É FORNECIDA «TAL COMO ESTÁ», SEM GARANTIAS DE QUALQUER TIPO.
-O AUTOR NÃO É RESPONSÁVEL POR PERDA DE DADOS OU OUTROS DANOS. FAZ BACKUPS.
+THE APPLICATION IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND.
+THE AUTHOR IS NOT LIABLE FOR DATA LOSS OR OTHER DAMAGES. MAKE BACKUPS.
