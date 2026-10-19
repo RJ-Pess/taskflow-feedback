@@ -1,6 +1,36 @@
 # TaskFlow
 
-> **English:** a personal, self-hosted task manager. Sections › Projects › Subprojects, due dates, recurrence, full-text search, 30-day trash, ntfy reminders and a quick-capture API. Runs as a single Docker container (SQLite, `linux/amd64` and `linux/arm64`, so Raspberry Pi and Apple Silicon work). **The interface is available in English and Portuguese (pt-PT); switch in Settings → Preferences → Language.** **The source code is closed. I'm an inexperienced developer, the whole app was built with AI, and I'm looking for feedback.** It is free for personal use; this repository is for installation and feedback. Install: see [Instalar](#instalar) (one `docker run`).
+> **English:** a personal, self-hosted task manager, originally built in Portuguese for my own needs and **fully translated to English so anyone can use it**. Sections › Projects › Subprojects, due dates, recurrence, full-text search, 30-day trash, ntfy reminders and a quick-capture API. Single Docker container (SQLite, `linux/amd64` and `linux/arm64`). **Closed source, built entirely with AI by an inexperienced developer looking for feedback;** free for personal use. See the [English section](#english) below.
+
+## English
+
+**TaskFlow** is a personal, self-hosted task manager: Sections › Projects › Subprojects, due dates, recurrence, full-text search, a 30-day trash, ntfy reminders and a quick-capture API.
+
+I originally built it **in Portuguese, for my own needs**. I then **translated the whole interface to English so anyone can use it**. Switch language in *Settings → Preferences → Language*. Quick capture, reminders and the morning digest understand both languages.
+
+- **Closed source.** I'm an inexperienced developer and the whole app was built with AI. I'm not publishing the code for now; I'm looking for feedback. It is free for personal use (see [License](#licença)).
+- **Single-user.** No teams, sharing or permissions. It runs over **plain HTTP**: use it on your home network or behind your own HTTPS. Don't expose it directly to the internet.
+- **No online demo.** See the [screenshots](#capturas) (sample data).
+
+### Install
+
+Requires [Docker](https://docs.docker.com/get-docker/). The image is multi-arch (`amd64` and `arm64`: PCs, Raspberry Pi, Apple Silicon).
+
+```bash
+docker run -d --name taskflow -p 3000:3000 \
+  -v taskflow-data:/app/data --restart unless-stopped \
+  ghcr.io/rj-pess/taskflow:latest
+```
+
+Open <http://localhost:3000> and create your account (the first account is created on first visit). A `docker-compose.yml` is shown in [Com Docker Compose](#com-docker-compose).
+
+**Update:** `docker pull ghcr.io/rj-pess/taskflow:latest`, `docker rm -f taskflow`, then run the install command again. Your data lives in the `taskflow-data` volume and survives updates.
+
+**Backup:** the app makes a daily backup (last 14) in `data/backups/`. Copy everything with `docker cp taskflow:/app/data ./taskflow-backup`.
+
+### Feedback
+
+Ideas: [open a suggestion](../../issues/new?template=sugestao.yml). Bugs: [report a bug](../../issues/new?template=bug.yml). Issues in English are welcome. It's a personal project, so I reply when I can.
 
 Gestor de tarefas pessoal, em português **e inglês** (escolhe em Definições → Preferências → Idioma): **Secções › Projetos › Subprojetos**, prazos, recorrência, pesquisa, lixo com 30 dias, lembretes e captura rápida por API.
 
