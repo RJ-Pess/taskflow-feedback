@@ -1,15 +1,26 @@
 # TaskFlow
 
-A personal, self-hosted task manager: **Sections › Projects › Subprojects**, due dates, recurrence, full-text search, a 30-day trash, reminders and a quick-capture API. It runs as a single Docker container.
+A personal, self-hosted task manager with due dates, recurrence, full-text search, a 30-day trash, reminders and a quick-capture API. It runs as a single Docker container.
 
 I'm Portuguese and I originally built TaskFlow for my own needs, in Portuguese. I then translated the whole interface to English so that **anyone can use it**. The app is available in English and Portuguese (pt-PT); pick the language in *Settings → Preferences → Language*.
 
 ![TaskFlow tour: Today, list, board, calendar and Gantt, in light and dark themes](docs/img/tour.gif)
 
+## How it's organised
+
+The hierarchy is **optional at every level**; use only as much as you need:
+
+- **Section** (e.g. Work, Home): a task can sit directly in a section.
+- **Project**: a task can sit directly in a project, with no subproject.
+- **Subproject**: a project has none until you create one; only then does it show up. It's there for big projects that need to be split up.
+
+So a simple setup is just *Section › Project › Task*, and many people never need more.
+
 ## Before you install
 
 - **The source code is closed.** I'm an inexperienced developer and the whole app was built with AI. For now I prefer not to publish the code: what I'm after is feedback from people who use it. The app is free for personal use (see [License](#license)).
 - **It's a personal, single-user app.** No teams, sharing or permissions. It runs over **plain HTTP**, so use it at home, on your local network, or behind your own HTTPS.
+- **It's light.** One container on SQLite, no separate database; it runs fine on a Raspberry Pi (the image is multi-architecture, amd64 and arm64).
 - **It installs in two minutes**, with no configuration: one command or a `docker-compose.yml` (below).
 - **There is no online demo.** The [screenshots](#screenshots) show the app with sample data.
 - **Please give feedback!** Any suggestion or bug report helps, see [Feedback](#feedback).
